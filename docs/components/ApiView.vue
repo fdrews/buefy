@@ -6,10 +6,10 @@
             <h3
                 v-if="component.title"
                 class="subtitle"
-                :key="component.title">
+                :key="`subtitle-${component.title}`">
                 {{ component.title }}
             </h3>
-            <b-tabs :key="component.title">
+            <b-tabs :key="`tabs-${component.title}`">
                 <b-tab-item v-if="component.props" label="Properties">
                     <b-table :data="component.props" :columns="propsColumns"/>
                 </b-tab-item>

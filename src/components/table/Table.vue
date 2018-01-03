@@ -58,7 +58,7 @@
                 <tbody v-if="visibleData.length">
                     <template v-for="(row, index) in visibleData">
                         <tr
-                            :key="index"
+                            :key="`selected-${index}`"
                             :class="[rowClass(row, index), {
                                 'is-selected': row === selected,
                                 'is-checked': isRowChecked(row)
@@ -103,9 +103,8 @@
                                 </BTableColumn>
                             </template>
                         </tr>
-
-                        <!-- Do not add `key` here (breaks details) -->
                         <tr
+                            :key="`detailed-${index}`"
                             v-if="detailed && isVisibleDetailRow(row)"
                             class="detail">
                             <td :colspan="columnCount">
